@@ -37,6 +37,7 @@ type AutonomousSystem struct {
 }
 type Hits struct {
 	IP               string           `json:"ip"`
+	Name             string           `json:"name"`
 	Services         []Services       `json:"services"`
 	Location         Location         `json:"location"`
 	AutonomousSystem AutonomousSystem `json:"autonomous_system"`
