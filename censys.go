@@ -86,8 +86,13 @@ func searchHost(query string, includeVirtualHosts bool, callback HitsCallback) e
 
 	urlEncodedQuery := url.QueryEscape(query)
 
-	url := "https://search.censys.io/api/v2/hosts/search?q=" + urlEncodedQuery +
-		"&per_page=100&virtual_hosts=" + (map[bool]string{true: "EXCLUDE", false: "INCLUDE"})[includeVirtualHosts]
+
+	url := "https://search.censys.io/api/v2/hosts/search?q=" + urlEncodedQuery + "&per_page=100&virtual_hosts="
+	if includeVirtualHosts{
+		url += "INCLUDE"
+	}else{
+		url += "EXCLUDE"
+	}
 
 	//fmt.Println(url)
 
